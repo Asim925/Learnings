@@ -1,18 +1,14 @@
 var url = "https://mylogger.io/log";
 const EventEmitter = require("events");
-const emitter = new EventEmitter();
 
-function log(message) {
-  console.log(message);
+class LoggerClass extends EventEmitter {
+  log(message) {
+    console.log(message);
 
-  emitter.on("logging", (arg) => {
-    console.log("logger listner called", arg);
-  });
-
-  emitter.emit("logging", { msg: message }); // raising*
+    this.emit("logging", { msg: message }); // raising*
+  }
 }
-
-module.exports.logFu = log; // value is log, key is logFu
+module.exports = LoggerClass; // value is log, key is logFu
 
 // we're actually adding the property name log in the
 // module: {
