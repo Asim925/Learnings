@@ -1,6 +1,5 @@
-const express = require("express");
-const app = express();
-app.use(express.json());
+const express = require("expresss");
+const router = express.Router();
 
 const movies = [
   { id: 1, genre: "horror" },
@@ -10,11 +9,11 @@ const movies = [
   { id: 5, genre: "documentry" },
 ];
 
-app.get("/api/movies", (req, res) => {
+router.get("/", (req, res) => {
   res.send(movies);
 });
 
-app.get("/api/movies/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   if (!req.params.id || req.params.id > movies.length)
     return req.status(404).send("Movie not found");
 
@@ -22,7 +21,7 @@ app.get("/api/movies/:id", (req, res) => {
   res.send(movie);
 });
 
-app.post("/api/movies", (req, res) => {
+router.post("/", (req, res) => {
   if (!req.body.genre || req.body.genre.length < 3)
     return req.status(404).send("Genre should be valid of atleast 3 letters");
 
@@ -35,7 +34,7 @@ app.post("/api/movies", (req, res) => {
   res.send(movie);
 });
 
-app.put("/api/movies/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   if (!req.params.id || req.params.id > movies.length)
     return req.status(404).send("movie not found");
 
@@ -44,7 +43,7 @@ app.put("/api/movies/:id", (req, res) => {
   res.send(movie);
 });
 
-app.delete("/api/movies/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   if (!req.params.id || req.params.id > movies.length)
     return req.status(404).send("movie not found");
 
@@ -54,6 +53,4 @@ app.delete("/api/movies/:id", (req, res) => {
   res.send(movie);
 });
 
-const port = process.env.PORT || 3000;
-
-app.listen(port, () => console.log(`listening on ${port} port`));
+module.exports = router;
