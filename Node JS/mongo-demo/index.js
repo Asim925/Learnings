@@ -37,12 +37,14 @@ async function createCourse() {
 async function getCourses() {
   // const allCourses = await Course.find();
   // console.log(allCourses);
-
+  const pageNo = 3;
+  const pageSize = 10;
   // we can apply filters
-  const courses = await Course.find()
+  const courses = await Course.find({ author: /.*as.*/i }) // .inclucde("as").toLowerCase()
     .or([{ name: "fullstack" }, { isPublished: true }])
     .and([{ author: "misa", isPublished: true }])
     // .find({ price: { $gt: 20, $lt: 50, $in: [23, 43, 34] } })
+    .skip((pageNo - 1) * pageSize) // skip first 20 if on page 3
     .limit(10)
     .sort({ name: 1 })
     .select({ name: 1, _id: 0 });
