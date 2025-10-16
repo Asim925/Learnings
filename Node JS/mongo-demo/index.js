@@ -17,8 +17,8 @@ const courseSchema = new mongoose.Schema({
 });
 
 // providing blueprint:
+// making constructor of the course schema
 const Course = mongoose.model("course", courseSchema);
-
 async function createCourse() {
   const course = new Course({
     name: "frontend",
@@ -31,12 +31,21 @@ async function createCourse() {
   console.log(result);
 }
 
-// createCourse();
+// createCourse(
+// );
 
 async function getCourses() {
-  const courses = await Course.find({ name: "frontend" })
+  // const allCourses = await Course.find();
+  // console.log(allCourses);
+
+  // we can apply filters
+  const courses = await Course.find()
+    .or([{ name: "fullstack" }, { isPublished: true }])
+    .and([{ author: "misa", isPublished: true }])
+    // .find({ price: { $gt: 20, $lt: 50, $in: [23, 43, 34] } })
     .limit(10)
-    .sort({ name: 1 }); // we can apply filters
+    .sort({ name: 1 })
+    .select({ name: 1, _id: 0 });
   console.log(courses);
 }
 getCourses();
