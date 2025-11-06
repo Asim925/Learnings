@@ -14,7 +14,7 @@ const courseSchema = mongoose.Schema({
   isPublished: Boolean,
 });
 
-// creating constructor using courseSchema
+// creating constructor using courseSchema :) named as "course"
 const Course = mongoose.model("courses", courseSchema);
 
 async function getCourses() {
