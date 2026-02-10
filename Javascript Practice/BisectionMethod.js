@@ -1,11 +1,12 @@
 function f(x) {
-  return 2 * x ** 3 - 2 * x - 5; //   2.x cube - 2x -5
+  return 2 * x ** 3 - 2 * x - 5; //  book wali equation 2.x cube - 2x -5
 }
+BisectionMethod([1.5, 2.5], 4);
 
 function BisectionMethod(interval, iter) {
-  let a = interval[0]; // start
-  let b = interval[1]; // end
-  let c = (a + b) / 2; // avg
+  let a = interval[0]; // startt..
+  let b = interval[1]; // ending
+  let c = (a + b) / 2; // middle
   console.log(`\nAs given, Root of the function lies between ${a} & ${b}\n`);
 
   for (let i = 0; i < iter; i++) {
@@ -39,7 +40,6 @@ The average value of a & b is ${parseFloat(c.toFixed(3))} || So f(c) --->  f(${p
       c = (a + b) / 2;
     } else {
       a = c;
-
       if (parseFloat(a.toFixed(3)) == parseFloat(b.toFixed(3))) {
         console.log(`The root of the funtion is ${parseFloat(a.toFixed(3))}\n`);
         break;
@@ -56,5 +56,3 @@ The average value of a & b is ${parseFloat(c.toFixed(3))} || So f(c) --->  f(${p
     }
   }
 }
-
-BisectionMethod([1.5, 2.5], 20);
