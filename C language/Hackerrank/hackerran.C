@@ -29,27 +29,94 @@
 
 // ========================= pointers ========================= //
 
+// #include <stdio.h>
+
+// void update(int *a, int *b)
+// {
+//     // Complete this function
+//     int A = *a, B = *b;
+//     A = *a + *b;
+//     B = (*a - *b > 0 ? *a - *b : *b - *a);
+
+//     *a = A;
+//     *b = B;
+// }
+
+// int main()
+// {
+//     int a, b;
+//     int *pa = &a, *pb = &b;
+
+//     scanf("%d %d", &a, &b);
+//     update(pa, pb);
+//     printf("%d\n%d", a, b);
+
+//     return 0;
+// }
+
+// ========================= if else ========================= //
+
+// #include <stdio.h>
+// int main()
+// {
+//     int n = 5;
+//     if (n == 1)
+//         printf("one");
+//     else if (n == 2)
+//         printf("two");
+//     else if (n == 3)
+//         printf("three");
+//     else if (n == 4)
+//         printf("four");
+//     else if (n == 5)
+//         printf("five");
+//     else if (n == 6)
+//         printf("six");
+//     else if (n == 7)
+//         printf("seven");
+//     else if (n == 8)
+//         printf("eight");
+//     else if (n == 9)
+//         printf("nine");
+//     else
+//         printf("Greater than 9");
+//     return 0;
+// }
+
+// ========================= loop ========================= //
+
 #include <stdio.h>
-
-void update(int *a, int *b)
-{
-    // Complete this function
-    int A = *a, B = *b;
-    A = *a + *b;
-    B = (*a - *b > 0 ? *a - *b : *b - *a);
-
-    *a = A;
-    *b = B;
-}
-
 int main()
 {
     int a, b;
-    int *pa = &a, *pb = &b;
+    scanf("%d\n%d", &a, &b);
+    // Complete the code.
+    for (int i = a; i <= b; i++)
+    {
+        if (i == 1)
+            printf("one");
+        else if (i == 2)
+            printf("two");
+        else if (i == 3)
+            printf("three");
+        else if (i == 4)
+            printf("four");
+        else if (i == 5)
+            printf("five");
+        else if (i == 6)
+            printf("six");
+        else if (i == 7)
+            printf("seven");
+        else if (i == 8)
+            printf("eight");
+        else if (i == 9)
+            printf("nine");
+        else if (i > 9 && i % 2 == 0)
+            printf("even");
+        else
+            printf("odd");
 
-    scanf("%d %d", &a, &b);
-    update(pa, pb);
-    printf("%d\n%d", a, b);
-
+        printf("\n");
+    }
     return 0;
 }
