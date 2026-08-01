@@ -1,4 +1,5 @@
-#include <stdio.h> // preprocessor directive
+#include <stdio.h>  // preprocessor directive
+#include <string.h> // for string functions
 
 // void printHello(const char religion) {
 //     if(religion == 'i') printf("madni \n");
@@ -217,5 +218,90 @@ int main()
 
    // ============================  String  ============================ //
 
+   /*
+      1. Automatically, at the end of the string there is null character : "\0"
+      2. While taking string[] as input.. we dont use "&"   because "string === &string[0]"
+      3. scanf can take the line; words with spaces. so we use fgets() and puts()
+      4. syntax of fgets(string, size, stdin) --- puts(string)
+   */
+
+   // char string[4];
+   // fgets(string, 4, stdin);
+   // puts(string);
+
+   /* pointer strings can be reinitialized but the array strings cant be */
+
+   // char *changable = "madni sahab";
+
+   // char unChangable[] = "madni sahab";
+
+   // ----------------  exercise: print length of the string ------------------ //
+
+   // char string[100];
+
+   // printf("write the name: ");
+   // fgets(string, 100, stdin);
+   // int length = 0;
+
+   // for (int i = 0; string[i] != '\0'; i++)
+   //    length++;
+
+   // printf("\n here is the length: %d", length - 1);
+
+   // --------------- string.h library functions ------------------ //
+
+   // 1. length of string : strlen(string)
+   // printf("%lu", strlen("madniahab"));
+
+   // 2. Replace String: strcopy(jis 'me' value dalwani hai, jis 'ki' value dalwani hai)
+   // char str1[] = "str1";
+   // char str2[] = "str2";
+   // strcpy(str1, str2);
+   // puts(str1);
+
+   // 3. Concatenation: strcat(s1, s2)
+   // ----> Issue is that the strings length must be greater to concat 2 strings... else throw an error
+   // char s1[99] = "AB";
+   // char s2[] = "XY";
+   // strcat(s1, s2);
+   // puts(s1);
+
+   // ----------------  exercise: input string using %c ------------------ //
+
+   // char string[99] = "";
+   // printf("enter the string \n");
+
+   // char ch;
+   // for (int i = 0; ch != '\n'; i++)
+   // {
+   //    scanf("%c", &ch);
+   //    string[i] = ch;
+   // }
+
+   // puts(string);
+
+   // ----------------  exercise: salting ------------------ //
+
+   // char pass[100];
+
+   // printf("enter your pass: ");
+   // scanf("%s", pass);
+
+   // strcat(pass, "123");
+
+   // puts(pass);
+
+   // ----------------  exercise: slicing ------------------ //
+
+   char string[100] = "HelloWorld";
+
+   int start = 2;
+   int end = 4;
+
+   for (int i = start; i < end; i++)
+   {
+      printf("%c", string[i]);
+   }
+   printf("\n");
    return 0;
 }
