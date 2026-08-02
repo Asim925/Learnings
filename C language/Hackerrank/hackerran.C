@@ -139,40 +139,64 @@
 
 // ========================= Bitwise operation ========================= //
 
+// #include <stdio.h>
+
+// void calculate_the_maximum(int n, int k)
+// {
+
+//     int maxAnd = 0;
+//     int maxOr = 0;
+//     int maxXor = 0;
+
+//     for (int i = 1; i <= n; i++)
+//     {
+//         for (int j = i + 1; j <= n; j++)
+//         {
+//             int AND = i & j;
+//             int OR = i | j;
+//             int XOR = i ^ j;
+
+//             if (AND < k && AND > maxAnd)
+//                 maxAnd = AND;
+//             if (OR < k && OR > maxOr)
+//                 maxOr = OR;
+//             if (XOR < k && XOR > maxXor)
+//                 maxXor = XOR;
+//         }
+//     }
+//     printf("%d\n%d\n%d\n", maxAnd, maxOr, maxXor);
+// }
+
+// int main()
+// {
+//     int n, k;
+
+//     scanf("%d %d", &n, &k);
+//     calculate_the_maximum(n, k);
+
+//     return 0;
+// }
+
+// ========================= Arrays and string ========================= //
+
 #include <stdio.h>
-
-void calculate_the_maximum(int n, int k)
-{
-
-    int maxAnd = 0;
-    int maxOr = 0;
-    int maxXor = 0;
-
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = i + 1; j <= n; j++)
-        {
-            int AND = i & j;
-            int OR = i | j;
-            int XOR = i ^ j;
-
-            if (AND < k && AND > maxAnd)
-                maxAnd = AND;
-            if (OR < k && OR > maxOr)
-                maxOr = OR;
-            if (XOR < k && XOR > maxXor)
-                maxXor = XOR;
-        }
-    }
-    printf("%d\n%d\n%d\n", maxAnd, maxOr, maxXor);
-}
 
 int main()
 {
-    int n, k;
 
-    scanf("%d %d", &n, &k);
-    calculate_the_maximum(n, k);
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int n;
+    scanf("%d", &n);
+    int arr[n];
 
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        int element;
+        scanf("%d", &element);
+        arr[i] = element;
+        sum += element;
+    }
+    printf("%d", sum);
     return 0;
 }
