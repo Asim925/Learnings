@@ -85,38 +85,94 @@
 
 // ========================= loop ========================= //
 
+// #include <stdio.h>
+// int main()
+// {
+//     int a, b;
+//     scanf("%d\n%d", &a, &b);
+//     // Complete the code.
+//     for (int i = a; i <= b; i++)
+//     {
+//         if (i == 1)
+//             printf("one");
+//         else if (i == 2)
+//             printf("two");
+//         else if (i == 3)
+//             printf("three");
+//         else if (i == 4)
+//             printf("four");
+//         else if (i == 5)
+//             printf("five");
+//         else if (i == 6)
+//             printf("six");
+//         else if (i == 7)
+//             printf("seven");
+//         else if (i == 8)
+//             printf("eight");
+//         else if (i == 9)
+//             printf("nine");
+//         else if (i > 9 && i % 2 == 0)
+//             printf("even");
+//         else
+//             printf("odd");
+
+//         printf("\n");
+//     }
+//     return 0;
+// }
+
+// ========================= SUm of 5 digit number ========================= //
+
+// #include <stdio.h>
+
+// int main()
+// {
+
+//     int n = 10123;
+//     // scanf("%d", &n);
+//     // Complete the code to calculate the sum of the five digits on n.
+
+//     int sum = n % 10 + ((n / 10) % 10) + ((n / 100) % 10) + ((n / 1000) % 10) + ((n / 10000) % 10);
+//     printf("%d", sum);
+//     return 0;
+// }
+
+// ========================= Bitwise operation ========================= //
+
 #include <stdio.h>
+
+void calculate_the_maximum(int n, int k)
+{
+
+    int maxAnd = 0;
+    int maxOr = 0;
+    int maxXor = 0;
+
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = i + 1; j <= n; j++)
+        {
+            int AND = i & j;
+            int OR = i | j;
+            int XOR = i ^ j;
+
+            if (AND < k && AND > maxAnd)
+                maxAnd = AND;
+            if (OR < k && OR > maxOr)
+                maxOr = OR;
+            if (XOR < k && XOR > maxXor)
+                maxXor = XOR;
+        }
+    }
+    printf("%d\n%d\n%d\n", maxAnd, maxOr, maxXor);
+}
+
 int main()
 {
-    int a, b;
-    scanf("%d\n%d", &a, &b);
-    // Complete the code.
-    for (int i = a; i <= b; i++)
-    {
-        if (i == 1)
-            printf("one");
-        else if (i == 2)
-            printf("two");
-        else if (i == 3)
-            printf("three");
-        else if (i == 4)
-            printf("four");
-        else if (i == 5)
-            printf("five");
-        else if (i == 6)
-            printf("six");
-        else if (i == 7)
-            printf("seven");
-        else if (i == 8)
-            printf("eight");
-        else if (i == 9)
-            printf("nine");
-        else if (i > 9 && i % 2 == 0)
-            printf("even");
-        else
-            printf("odd");
+    int n, k;
 
-        printf("\n");
-    }
+    scanf("%d %d", &n, &k);
+    calculate_the_maximum(n, k);
+
     return 0;
 }
