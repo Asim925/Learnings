@@ -231,38 +231,63 @@
 
 // ========================= Student marks sum ========================= //
 
+// #include <stdio.h>
+
+// int marks_summation(int *marks, int number_of_students, char gender)
+// {
+//     int sum = 0;
+//     for (int i = gender == 'g' ? 1 : 0; i < number_of_students; i += 2)
+//     {
+//         sum += marks[i];
+//     }
+//     return sum;
+// }
+
+// int main()
+// {
+//     int number_of_students;
+//     char gender;
+//     int sum;
+
+//     scanf("%d", &number_of_students);
+//     int *marks = (int *)malloc(number_of_students * sizeof(int));
+
+//     for (int student = 0; student < number_of_students; student++)
+//     {
+//         scanf("%d", (marks + student));
+//     }
+
+//     scanf(" %c", &gender);
+//     sum = marks_summation(marks, number_of_students, gender);
+//     printf("%d", sum);
+//     free(marks);
+
+//     return 0;
+// }
+
+// ========================= Printing Tokens ========================= //
 #include <stdio.h>
-
-// Complete the following function.
-
-int marks_summation(int *marks, int number_of_students, char gender)
-{
-    int sum = 0;
-    for (int i = gender == 'g' ? 1 : 0; i < number_of_students; i += 2)
-    {
-        sum += marks[i];
-    }
-    return sum;
-}
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
 
 int main()
 {
-    int number_of_students;
-    char gender;
-    int sum;
 
-    scanf("%d", &number_of_students);
-    int *marks = (int *)malloc(number_of_students * sizeof(int));
+    char *s;
+    s = malloc(1024 * sizeof(char));
+    scanf("%[^\n]", s);
+    s = realloc(s, strlen(s) + 1);
 
-    for (int student = 0; student < number_of_students; student++)
+    // Write your logic to print the tokens of the sentence here.
+
+    for (int i = 0; s[i] != '\0'; i++)
     {
-        scanf("%d", (marks + student));
+        if (s[i] == ' ')
+
+            printf("\n");
+        else
+            printf("%c", s[i]);
     }
-
-    scanf(" %c", &gender);
-    sum = marks_summation(marks, number_of_students, gender);
-    printf("%d", sum);
-    free(marks);
-
     return 0;
 }
