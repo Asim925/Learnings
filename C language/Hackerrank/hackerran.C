@@ -179,24 +179,86 @@
 
 // ========================= Arrays and string ========================= //
 
+// #include <stdio.h>
+
+// int main()
+// {
+
+//     /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+//     int n;
+//     scanf("%d", &n);
+//     int *arr[n];
+
+//     int sum = 0;
+//     for (int i = 0; i < n; i++)
+//     {
+//         int element;
+//         scanf("%d", &element);
+//         arr[i] = element;
+//         sum += element;
+//         }
+//     printf("%d", sum);
+//     return 0;
+// }
+
+// ========================= Recursion ========================= //
+
+// #include <stdio.h>
+
+// // Complete the following function.
+
+// int find_nth_term(int n, int a, int b, int c)
+// {
+//     if (n == 1)
+//         return a;
+//     if (n == 2)
+//         return b;
+//     if (n == 3)
+//         return c;
+//     return find_nth_term(n - 1, a, b, c) + find_nth_term(n - 2, a, b, c) + find_nth_term(n - 3, a, b, c);
+// }
+
+// int main()
+// {
+//     int n, a, b, c;
+
+//     scanf("%d %d %d %d", &n, &a, &b, &c);
+//     int ans = find_nth_term(n, a, b, c);
+
+//     printf("%d", ans);
+//     return 0;
+// }
+
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+// Complete the following function.
+
+int marks_summation(int *marks, int number_of_students, char gender)
+{
+    // Write your code here.
+}
 
 int main()
 {
+    int number_of_students;
+    char gender;
+    int sum;
 
-    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
-    int n;
-    scanf("%d", &n);
-    int arr[n];
+    scanf("%d", &number_of_students);
+    int *marks = (int *)malloc(number_of_students * sizeof(int));
 
-    int sum = 0;
-    for (int i = 0; i < n; i++)
+    for (int student = 0; student < number_of_students; student++)
     {
-        int element;
-        scanf("%d", &element);
-        arr[i] = element;
-        sum += element;
+        scanf("%d", (marks + student));
     }
+
+    scanf(" %c", &gender);
+    sum = marks_summation(marks, number_of_students, gender);
     printf("%d", sum);
+    free(marks);
+
     return 0;
 }
