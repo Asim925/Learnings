@@ -293,15 +293,32 @@ int main()
 
    // ----------------  exercise: slicing ------------------ //
 
-   char string[100] = "HelloWorld";
+   // char string[100] = "HelloWorld";
 
-   int start = 2;
-   int end = 4;
+   // int start = 2;
+   // int end = 4;
 
-   for (int i = start; i < end; i++)
+   // for (int i = start; i < end; i++)
+   // {
+   //    printf("%c", string[i]);
+   // }
+   // printf("\n");
+
+   // ============================  Structures (objects)  ============================ //
+   struct Student // we defined the blueprint here
    {
-      printf("%c", string[i]);
-   }
-   printf("\n");
+      char name[100];
+      int age;
+      float marks;
+   };
+
+   struct Student s1;
+   s1.age = 18;
+   s1.marks = 100;
+   // s1.name = "Asim"; // this is throwing error because we cant change the array directly by equals. so:
+
+   strcpy(s1.name, "Asim");
+
+   printf("%s", s1);
    return 0;
 }
