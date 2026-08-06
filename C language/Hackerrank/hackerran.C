@@ -341,49 +341,91 @@
 
 // ========================= Boxes throught tunnel ========================= //
 
+// #include <stdio.h>
+// #include <stdlib.h>
+// #define MAX_HEIGHT 41
+
+// struct box
+// {
+//     int length;
+//     int width;
+//     int height;
+// };
+
+// typedef struct box box;
+
+// int get_volume(box b)
+// {
+//     return b.length * b.height * b.width;
+// }
+
+// int is_lower_than_max_height(box b)
+// {
+//     /**
+//      * Return 1 if the box's height is lower than MAX_HEIGHT and 0 otherwise
+//      */
+//     if (b.height < MAX_HEIGHT)
+//         return 1;
+//     return 0;
+// }
+
+// int main()
+// {
+//     int n;
+//     scanf("%d", &n);
+//     box *boxes = malloc(n * sizeof(box));
+//     for (int i = 0; i < n; i++)
+//     {
+//         scanf("%d%d%d", &boxes[i].length, &boxes[i].width, &boxes[i].height);
+//     }
+//     for (int i = 0; i < n; i++)
+//     {
+//         if (is_lower_than_max_height(boxes[i]))
+//         {
+//             printf("%d\n", get_volume(boxes[i]));
+//         }
+//     }
+//     return 0;
+// }
+
+// ========================= printing patterb ========================= //
+
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
 #include <stdlib.h>
-#define MAX_HEIGHT 41
 
-struct box
-{
-    int length;
-    int width;
-    int height;
-};
-
-typedef struct box box;
-
-int get_volume(box b)
-{
-    return b.length * b.height * b.width;
-}
-
-int is_lower_than_max_height(box b)
-{
-    /**
-     * Return 1 if the box's height is lower than MAX_HEIGHT and 0 otherwise
-     */
-    if (b.height < MAX_HEIGHT)
-        return 1;
-    return 0;
-}
+int abs(int val) { return val * (-1); }
 
 int main()
 {
-    int n;
-    scanf("%d", &n);
-    box *boxes = malloc(n * sizeof(box));
-    for (int i = 0; i < n; i++)
+
+    int n = 5;
+    // scanf("%d", &n);
+    // Complete the code to print the pattern.
+    for (int i = 0; i < n * 2 - 1; i++)
     {
-        scanf("%d%d%d", &boxes[i].length, &boxes[i].width, &boxes[i].height);
-    }
-    for (int i = 0; i < n; i++)
-    {
-        if (is_lower_than_max_height(boxes[i]))
+        int num = n;
+        for (int j = 0; j < n * 2 - 1; j++)
         {
-            printf("%d\n", get_volume(boxes[i]));
+            // abs
+            if (num > 1)
+                printf("%d ", num);
+            else
+                printf("%d ", abs(num));
+
+            // logic
+            if (i > j || n - (i % n) > n - (j % n))
+            {
+
+                if (j < n)
+                    num--;
+
+                else if (j >= n)
+                    num++;
+            }
         }
+        printf("\n");
     }
     return 0;
 }
